@@ -19,10 +19,15 @@ public class Pokemon {
 	}
 	
 	public void obtenerEstadisticas() {
-		System.out.println("Nivel: " + this.nivel);
-		System.out.println("Vida: " + this.vida);
+		System.out.println("Mote: " + this.apodo);
+		System.out.println("Nombre: " + this.nombre);
 		System.out.println("Nivel: " + this.nivel);
 		System.out.println("Tipo: " + this.tipo);
+		System.out.println("Vida: " + this.vida);
+		System.out.println("Ataque: " + this.ataque);
+		System.out.println("Defensa: " + this.defensa);
+		System.out.println("Fortalezas: " + this.fuerteContra);
+		System.out.println("Debilidades: " + this.debilContra);
 
 	}
 
