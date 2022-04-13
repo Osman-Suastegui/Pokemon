@@ -1,16 +1,17 @@
 public class Fuego extends Pokemon {
-	Fuerte FuerteContra = Fuerte.PLANTA;
-	Debil DebilContra = Debil.AGUA;
-	
-	public Fuego(String nombre,String tipo) {
-		super(nombre,tipo);
-	}
-	
-	@Override
-	public void obtenerEstadisticas() {
-		super.obtenerEstadisticas();
-		System.out.println("Fuerte Contra: " + this.FuerteContra);
-		System.out.println("Debil Contra: " + this.DebilContra);
-	}
-	
+
+    public Fuego(String apodo, String nombre) {
+        super(apodo, nombre);
+        this.tipo = "FUEGO";
+        this.ataque = 15;
+        this.defensa = 5;
+        this.fuerteContra = "AGUA";
+        this.debilContra = "PLANTA";
+        this.vida = 90;
+    }
+    
+    
+  
+
+    
 }

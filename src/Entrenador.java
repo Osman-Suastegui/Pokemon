@@ -11,6 +11,7 @@ public class Entrenador {
 	public String obtenerNombre() {
 		return this.nombre;
 	}
+
 	
 
 	public void caminar() {

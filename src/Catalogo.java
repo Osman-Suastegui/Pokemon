@@ -6,15 +6,14 @@ public class Catalogo {
 	Pokemon[] pokemon = new Pokemon[totalPokemones];
 	
 	 public Catalogo() {
-		Pokemon pok1 = new Fuego("CHARIZARD","FUEGO");
-		Pokemon pok2 = new Fuego("TORTUGA","FUEGO");
-		Pokemon pok3 = new Fuego("ELPLANTA","FUEGO");
+		// Pokemon pok1 = new Fuego("CHARIZARD","FUEGO");
+		// Pokemon pok2 = new Fuego("TORTUGA","FUEGO");
+		// Pokemon pok3 = new Fuego("ELPLANTA","FUEGO");
 		
-		pokemon[0] = pok1;
-		pokemon[1] = pok2;
-		pokemon[2] = pok3;
-		//pokes
-		//comentario agregado por osman
+		// pokemon[0] = pok1;
+		// pokemon[1] = pok2;
+		// pokemon[2] = pok3;
+	
 	}
 	
 	public int obtenerTotalPokemones() {
