@@ -1,11 +1,11 @@
 
 public class Entrenador {
 	private String nombre;
-	private Pokedex miPokedex;
+	public Pokedex miPokedex;
 	
-	public Entrenador(String nombre,Pokedex miPokedex) {
+	public Entrenador(String nombre) {
 		this.nombre = nombre;
-		this.miPokedex = miPokedex;
+		this.miPokedex = new Pokedex();
 	}
 	
 	public String obtenerNombre() {
