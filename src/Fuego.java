@@ -1,7 +1,7 @@
 public class Fuego extends Pokemon {
 
-    public Fuego(String apodo, String nombre) {
-        super(apodo, nombre);
+    public Fuego(String nombre) {
+        super(nombre);
         this.tipo = "FUEGO";
         this.ataque = 20;
         this.defensa = 10;
@@ -9,6 +9,18 @@ public class Fuego extends Pokemon {
         this.debilContra = "PLANTA";
         this.vida = 70;
     }
+    
+    public Fuego(String nombre, String apodo) {
+        super(nombre);
+        this.tipo = "FUEGO";
+        this.ataque = 20;
+        this.defensa = 10;
+        this.fuerteContra = "AGUA";
+        this.debilContra = "PLANTA";
+        this.vida = 70;
+    }
+    
+    
     
     
   

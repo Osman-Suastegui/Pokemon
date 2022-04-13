@@ -1,18 +1,17 @@
-import java.util.HashMap;
 import java.util.Arrays;  
 public class Catalogo {
 	
-	private int totalPokemones = PokemonesDisponibles.values().length; 
+	private int totalPokemones = 3;
 	Pokemon[] pokemon = new Pokemon[totalPokemones];
 	
 	 public Catalogo() {
-		// Pokemon pok1 = new Fuego("CHARIZARD","FUEGO");
-		// Pokemon pok2 = new Fuego("TORTUGA","FUEGO");
-		// Pokemon pok3 = new Fuego("ELPLANTA","FUEGO");
+		 Pokemon pok1 = new Fuego("CHARIZARD");
+		 Pokemon pok2 = new Agua("BLASTOISE");
+		 Pokemon pok3 = new Fuego("VENUSAUR");
 		
-		// pokemon[0] = pok1;
-		// pokemon[1] = pok2;
-		// pokemon[2] = pok3;
+		pokemon[0] = pok1;
+		pokemon[1] = pok2;
+		pokemon[2] = pok3;
 	
 	}
 	

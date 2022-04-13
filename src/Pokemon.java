@@ -10,10 +10,10 @@ public class Pokemon {
  	public String fuerteContra;
 	public String debilContra;
 	
-	public Pokemon(String nombre,String tipo) {
+	public Pokemon(String nombre) {
 		this.nombre = nombre;
-		this.tipo = tipo;
 	}
+	
 	public void atacar() {
 		System.out.println("Ataco");
 	}
