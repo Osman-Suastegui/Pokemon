@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class principal {
-	public static void irCatalogo(Entrenador ent) {
+	public static void menuCatalogo( ) {
 		
 		int opc ;
 		
@@ -24,7 +24,6 @@ public class principal {
 			
 		}else {
 			System.out.print("Ingresa el tipo: ");
-//			ent.buscarPorNombre(sc.next());
 			
 		}
 	}
@@ -55,7 +54,7 @@ public class principal {
 			  switch (opc) 
 		        {
 		            case 1:  
-		            		irCatalogo(ent);
+							menuCatalogo();
 		                     break;
 		            case 2: 
 		            		irPokedex();

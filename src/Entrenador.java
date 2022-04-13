@@ -12,9 +12,7 @@ public class Entrenador {
 		return this.nombre;
 	}
 	
-//	public Boolean buscarPorNombre(String nombre) {
-//	}
-	
+
 	public void caminar() {
 		
 	}
