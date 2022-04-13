@@ -14,6 +14,7 @@ public class Catalogo {
 		pokemon[1] = pok2;
 		pokemon[2] = pok3;
 		//pokes
+		//comentario agregado por osman
 	}
 	
 	public int obtenerTotalPokemones() {
