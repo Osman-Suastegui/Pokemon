@@ -13,7 +13,7 @@ public class Catalogo {
 		pokemon[0] = pok1;
 		pokemon[1] = pok2;
 		pokemon[2] = pok3;
-		
+		//pokes
 	}
 	
 	public int obtenerTotalPokemones() {
