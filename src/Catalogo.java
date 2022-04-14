@@ -30,14 +30,16 @@ public class Catalogo {
 		return -1;
 	}
 	
-	//Ver si existe el pokemon buscandolo por tipo
-	public int existeTipo(String tipo) {
-		for(int i = 0 ; i < totalPokemones; i++) {
+	public Pokemon[] buscarPokemonTipo(String tipo) {
+		Pokemon[] pokemon_tipo = new Pokemon[totalPokemones];
+		int contador = 0;
+		for(int i = 0; i < totalPokemones; i++) {
 			if(pokemon[i].tipo.equals(tipo)) {
-				return i;
+				pokemon_tipo[contador] = pokemon[i];
+				contador++;
 			}
 		}
-		return -1;
+		return pokemon_tipo;
 	}
 	
     //Si el pokemon existe, lo mostrara
