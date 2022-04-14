@@ -19,7 +19,6 @@ public class Pokemon {
 	}
 	
 	public void obtenerEstadisticas() {
-		System.out.println("Mote: " + this.apodo);
 		System.out.println("Nombre: " + this.nombre);
 		System.out.println("Nivel: " + this.nivel);
 		System.out.println("Tipo: " + this.tipo);

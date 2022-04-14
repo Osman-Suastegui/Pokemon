@@ -12,6 +12,7 @@ public class Agua extends Pokemon {
     
         public Agua(String nombre, String apodo) {
             super(nombre);
+            this.apodo = apodo;
             this.tipo = "AGUA";
             this.ataque = 5;
             this.defensa = 15;
@@ -20,4 +21,11 @@ public class Agua extends Pokemon {
             this.vida = 80;
         }
     
+        @Override
+        public void obtenerEstadisticas() {
+        	System.out.println("Mote: " + this.apodo);
+        	super.obtenerEstadisticas();
+        }
+        
+        
 }

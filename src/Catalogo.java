@@ -7,7 +7,7 @@ public class Catalogo {
 	 public Catalogo() {
 		 Pokemon pok1 = new Fuego("CHARIZARD");
 		 Pokemon pok2 = new Agua("BLASTOISE");
-		 Pokemon pok3 = new Fuego("VENUSAUR");
+		 Pokemon pok3 = new Planta("VENUSAUR");
 		
 		pokemon[0] = pok1;
 		pokemon[1] = pok2;
