@@ -15,16 +15,7 @@ public class Pokedex extends Catalogo {
 		return -1;
 	}
     
-  //Ver si existe el pokemon buscandolo por tipo
-    @Override
-	public int existeTipo(String tipo) {
-		for(int i = 0 ; i <this.totalPokemon; i++) {
-			if(misPokemon[i].tipo.equals(tipo)) {
-				return i;
-			}
-		}
-		return -1;
-	}
+ 
     
     
   //Si el pokemon existe, lo mostrara
@@ -33,7 +24,7 @@ public class Pokedex extends Catalogo {
 		return misPokemon[i];
 	}
     
-   //Registar al pokemon y añadirlo con su entrenador
+   //Registar al pokemon y aï¿½adirlo con su entrenador
     public void agregarPokemon(Pokemon pokemonCapturado){
         this.misPokemon[this.totalPokemon] = pokemonCapturado;
         this.totalPokemon++;
