@@ -19,7 +19,7 @@ public class Pokedex extends Catalogo {
     @Override
 	public int existeTipo(String tipo) {
 		for(int i = 0 ; i <this.totalPokemon; i++) {
-			if(pokemon[i].tipo.equals(tipo)) {
+			if(misPokemon[i].tipo.equals(tipo)) {
 				return i;
 			}
 		}
@@ -45,10 +45,8 @@ public class Pokedex extends Catalogo {
     @Override    
 	public String verPokemon() {
 		String str = "";
-		for(int i = 0 ; i < misPokemon.length; i++) {
-			if(pokemon[i].vida != 0) {
-				str = str + (i+1) + ": " + pokemon[i].nombre + "\n";
-			}
+		for(int i = 0 ; i < totalPokemon; i++) {
+				str = str + (i+1) + ": " + misPokemon[i].nombre + "\n";
 		}
 	return str;	
 	}
