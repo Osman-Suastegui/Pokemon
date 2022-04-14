@@ -24,7 +24,7 @@ public class Pokedex extends Catalogo {
 		return misPokemon[i];
 	}
     
-   //Registar al pokemon y a�adirlo con su entrenador
+   //Registar al pokemon y anadirlo con su entrenador
     public void agregarPokemon(Pokemon pokemonCapturado){
         this.misPokemon[this.totalPokemon] = pokemonCapturado;
         this.totalPokemon++;
