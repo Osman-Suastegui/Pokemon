@@ -5,12 +5,31 @@ public class principal {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String nombre = "";
+		String apodo;
+		Pokemon pokeElegido;
 		System.out.println("Bienvenido al mejor juego de Pokemon");
 		System.out.print("Ingrese su nombre: " );
 		nombre = sc.next();
 		Entrenador ent = new Entrenador(nombre);
-		int opcion = 0;
+		System.out.print("Que Pokemon desea obtener:" );
+		Catalogo cat1 = new Catalogo();
+		System.out.print(cat1.verPokemon());
+		int opcion = sc.nextInt();
+		System.out.println("¿Que mote le deseas poner a tu pokemon");
+		apodo = sc.next();
+		if(opcion == 1) {
+			pokeElegido = new Fuego("CHARIZARD", apodo);
 
+		}else if(opcion == 2) {
+			pokeElegido = new Agua("BLASTOISE", apodo);
+
+		}else{
+			pokeElegido = new Planta("VENUSAUR", apodo);
+		}
+		
+		ent.miPokedex.agregarPokemon(pokeElegido);
+		
+		opcion = 0;
 		while (opcion != 4) {
 			System.out.println("ï¿½Que desea hacer?");
 			System.out.println("1: Abrir menu catalogo");
