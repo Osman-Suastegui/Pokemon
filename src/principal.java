@@ -8,16 +8,38 @@ public class principal {
 		System.out.println("Bienvenido al mejor juego de Pok�mon");
 		System.out.print("Ingrese su nombre: " );
 		nombre = sc.next();
-		Entrenador e1 = new Entrenador(nombre);
+		Entrenador ent = new Entrenador(nombre);
 		System.out.println("�Que desea hacer?");
 		System.out.println("1: Abrir menu catalogo");
-		System.out.println("2: Abrir Pok�dex");
+		System.out.println("2: Abrir Pokedex");
 		System.out.println("3: Caminar");
-		System.out.println("0: Salir del juego");
+		System.out.println("4: Salir del juego");
+		int opcion = sc.nextInt();
+
+		while (opcion != 4) {
+			switch (opcion) {
+			case 1:
+				mostrarCatalogo();
+				break;
+			case 2:
+				mostrarPokedex();
+				break;
+			case 3:
+				ent.caminar();
+				break;
+			default:
+				System.out.println("Opcion no valida");
+				break;
+			}
+		
+		}
+
+
+
 
 	}
 	
-	public void mostrarCatalogo() {
+	public static void mostrarCatalogo() {
 		Scanner sc = new Scanner(System.in);
 		Catalogo catalogo = new Catalogo();
 		int opcion = 0;
@@ -65,6 +87,13 @@ public class principal {
 		
 	}
 	
+	public static void mostrarPokedex() {
+	
+	}
+
+	public static void caminar() {
+	
+	}
 	
 
 }
