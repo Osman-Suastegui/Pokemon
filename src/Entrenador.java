@@ -74,13 +74,14 @@ public class Entrenador {
 		}else{
 			System.out.println("Haz derrotado al Pokemon salvaje " + pokemonSalvaje.nombre);
 			miPokemon.nivel = miPokemon.nivel + 1;
+			System.out.println(miPokemon.apodo + " ha subido a nivel " + miPokemon.nivel);
 			if(miPokemon.nombre == "CHARIZARD") {
 				miPokemon.vida = 70;
 			}else{
 				miPokemon.vida = 80;
 			}
 			if(this.miPokedex.totalPokemon < 3) {	
-			System.out.println("¿Deseas capturarlo? 1: Si - 2: No");
+			System.out.println("¿Deseas capturar al pokemon salvaje " + pokemonSalvaje.nombre +  " ? 1: Si - 2: No");
 			int resp = sc.nextInt();
 			if(resp == 1) {
 			Atrapar(pokemonSalvaje);	

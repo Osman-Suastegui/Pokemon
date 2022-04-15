@@ -114,12 +114,7 @@ public class principal {
 					break;
 				
 				}
-			System.out.println("\n�Desea volver a ver el Menu Catalogo?");
-			System.out.println("0: No\n1: Si");
-			resp = sc.nextInt();
-			if(resp == 0) {
-				return 0;
-			}
+
 			
 		}
 
@@ -138,7 +133,7 @@ public class principal {
 		while(opcion != 4) {
 
 			System.out.println("\n  MENU POKEDEX");
-			System.out.println("1: Buscar tus Pokemon por nombre");
+			System.out.println("1: Buscar tus Pokemon por mote");
 			System.out.println("2: Buscar tus Pokemon por tipo");
 			System.out.println("3: Ver todos tus Pokemon");
 			System.out.println("4: Volver al menu principal");
@@ -146,13 +141,13 @@ public class principal {
 			opcion = sc.nextInt();
 			switch(opcion) {
 				case 1:
-					System.out.print("Ingrese el nombre del pokemon: ");
-					String nombre = sc.next();
-					int posicion = ent1.miPokedex.existePokemon(nombre);
+					System.out.print("Ingrese el apodo del pokemon: ");
+					String apodo = sc.next();
+					int posicion = ent1.miPokedex.existePokemon(apodo);
 					if(posicion == -1) {
-						System.out.println("El pokemon " + nombre + " no se encuentra");
+						System.out.println("El pokemon con mote " + apodo + " no se encuentra");
 					}else {
-						System.out.println("Pokemon " + nombre +" Encontrado!");
+						System.out.println("Pokemon con mote " + apodo +" Encontrado!");
 						ent1.miPokedex.buscarPokemon(posicion).obtenerEstadisticas();
 					}
 					break;

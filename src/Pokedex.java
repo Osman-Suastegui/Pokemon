@@ -6,9 +6,9 @@ public class Pokedex extends Catalogo {
 
     //Ver si existe el pokemon buscandolo por nombre
     @Override
-    public int existePokemon(String nombre) {
+    public int existePokemon(String apodo) {
 		for(int i = 0 ; i < this.totalPokemon; i++) {
-			if(this.misPokemon[i].nombre.equals(nombre)) {
+			if(this.misPokemon[i].apodo.equals(apodo)) {
 				return i;
 			}
 		}

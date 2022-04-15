@@ -27,4 +27,6 @@ public class Planta extends Pokemon {
     	super.obtenerEstadisticas();
     }
     
+    
+    
 }
