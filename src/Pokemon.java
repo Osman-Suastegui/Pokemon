@@ -18,10 +18,10 @@ public class Pokemon {
 		int daño = pokeAtacante.ataque;
 		pokeDañado.vida = pokeDañado.vida - daño;
 		if(flag == true) {
-			System.out.println(pokeAtacante.apodo + " ha atacado a " + pokeDañado.nombre);
-			System.out.println("La vida de " + pokeDañado.nombre + " bajo a " + pokeDañado.vida);
+			System.out.println(pokeAtacante.apodo + " ataco al " + pokeDañado.nombre + " salvaje");
+			System.out.println("La vida del " + pokeDañado.nombre + " salvaje bajo a " + pokeDañado.vida);
 		}else {
-			System.out.println(pokeAtacante.nombre + " ha atacado a " + pokeDañado.apodo);
+			System.out.println("el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDañado.apodo);
 			System.out.println("La vida de " + pokeDañado.apodo + " bajo a " + pokeDañado.vida);
 		}
 		

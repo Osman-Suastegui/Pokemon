@@ -161,11 +161,14 @@ public class principal {
 					String tipo = sc.next();
 					if(tipo.equals("FUEGO") || tipo.equals("AGUA") || tipo.equals("PLANTA")) {
 						Pokemon[] pok_tipo = ent1.miPokedex.buscarPokemonTipo(tipo);
-						for(int i = 0; i < ent1.miPokedex.totalPokemon; i++) {
+						for(int i = 0; i < pok_tipo.length; i++) {
+							if(pok_tipo[i] != null){
 								System.out.println("Pokemon de tipo " + tipo +" Encontrado!");
 								pok_tipo[i].obtenerEstadisticas();	
+							}
 							
 						}
+						
 						
 					}else {
 						System.out.println("El entrenador Pokemon " + ent1.obtenerNombre() + " no cuenta con Pokemon tipo: " + tipo );
