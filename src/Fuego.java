@@ -5,8 +5,8 @@ public class Fuego extends Pokemon {
         this.tipo = "FUEGO";
         this.ataque = 20;
         this.defensa = 10;
-        this.fuerteContra = "AGUA";
-        this.debilContra = "PLANTA";
+        this.fuerteContra = "PLANTA";
+        this.debilContra = "AGUA";
         this.vida = 70;
     }
     
@@ -16,8 +16,8 @@ public class Fuego extends Pokemon {
         this.tipo = "FUEGO";
         this.ataque = 20;
         this.defensa = 10;
-        this.fuerteContra = "AGUA";
-        this.debilContra = "PLANTA";
+        this.fuerteContra = "PLANTA";
+        this.debilContra = "AGUA";
         this.vida = 70;
     }
     
