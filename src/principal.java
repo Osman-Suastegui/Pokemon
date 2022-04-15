@@ -188,8 +188,9 @@ public class principal {
 		return 0;
 	}
 
-	public static void caminar() {
-	
+	public static void caminar(Entrenador ent) {
+		
+		
 	}
 	
 
