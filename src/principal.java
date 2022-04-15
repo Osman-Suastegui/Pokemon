@@ -23,7 +23,7 @@ public class principal {
 		}else {
 			System.out.println("Venusaur");
 		}
-		System.out.println("¿Que mote le deseas poner a tu Pokemon?");
+		System.out.println("ï¿½Que mote le deseas poner a tu Pokemon?");
 		apodo = sc.next();
 		if(opcion == 1) {
 			pokeElegido = new Fuego("CHARIZARD", apodo);
@@ -40,7 +40,7 @@ public class principal {
 		opcion = 0;
 		while (opcion != 4) {
 			System.out.println("\n   MENU PRINCIPAL");
-			System.out.println("¿Que desea hacer?");
+			System.out.println("ï¿½Que desea hacer?");
 			System.out.println("1: Abrir menu Catalogo");
 			System.out.println("2: Abrir menu Pokedex");
 			System.out.println("3: Caminar");
@@ -114,7 +114,7 @@ public class principal {
 					break;
 				
 				}
-			System.out.println("\n¿Desea volver a ver el Menu Catalogo?");
+			System.out.println("\nï¿½Desea volver a ver el Menu Catalogo?");
 			System.out.println("0: No\n1: Si");
 			resp = sc.nextInt();
 			if(resp == 0) {
@@ -161,12 +161,9 @@ public class principal {
 					String tipo = sc.next();
 					if(tipo.equals("FUEGO") || tipo.equals("AGUA") || tipo.equals("PLANTA")) {
 						Pokemon[] pok_tipo = ent1.miPokedex.buscarPokemonTipo(tipo);
-						for(int i = 0; i < pok_tipo.length; i++) {
-							if(pok_tipo[i] != null) {
+						for(int i = 0; i < ent1.miPokedex.totalPokemon; i++) {
 								System.out.println("Pokemon de tipo " + tipo +" Encontrado!");
 								pok_tipo[i].obtenerEstadisticas();	
-
-							}
 							
 						}
 						
@@ -185,12 +182,7 @@ public class principal {
 					break;
 				
 				}
-			System.out.println("\n¿Desea volver a ver el Menu Pokedex?");
-			System.out.println("0: No\n1: Si");
-			resp = sc.nextInt();
-			if(resp == 0) {
-				return 0;
-			}
+	
 		}
 		sc.close();
 		return 0;

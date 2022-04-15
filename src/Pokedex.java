@@ -8,7 +8,7 @@ public class Pokedex extends Catalogo {
     @Override
     public int existePokemon(String nombre) {
 		for(int i = 0 ; i < this.totalPokemon; i++) {
-			if(misPokemon[i].nombre.equals(nombre)) {
+			if(this.misPokemon[i].nombre.equals(nombre)) {
 				return i;
 			}
 		}
@@ -22,7 +22,7 @@ public class Pokedex extends Catalogo {
 		int contador = 0;
 		for(int i = 0; i < this.totalPokemon; i++) {
 			if(misPokemon[i].tipo.equals(tipo)) {
-				pokemon_tipo[contador] = misPokemon[i];
+				pokemon_tipo[contador] = this.misPokemon[i];
 				contador++;
 			}
 		}
@@ -34,7 +34,7 @@ public class Pokedex extends Catalogo {
   //Si el pokemon existe, lo mostrara
     @Override
     public Pokemon buscarPokemon(int i) {
-		return misPokemon[i];
+		return this.misPokemon[i];
 	}
     
    //Registar al pokemon y anadirlo con su entrenador
@@ -49,8 +49,8 @@ public class Pokedex extends Catalogo {
     @Override    
 	public String verPokemon() {
 		String str = "";
-		for(int i = 0 ; i < totalPokemon; i++) {
-				str = str + (i+1) + ": " + misPokemon[i].nombre + "\n";
+		for(int i = 0 ; i < this.totalPokemon; i++) {
+				str = str + (i+1) + ": " + this.misPokemon[i].nombre + "\n";
 		}
 	return str;	
 	}
