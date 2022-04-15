@@ -159,7 +159,7 @@ public class principal {
 				case 2:
 					System.out.print("Ingrese el tipo del pokemon: ");
 					String tipo = sc.next();
-					if(tipo.equals("FUEGO") || tipo.equals("AGUA") & tipo.equals("PLANTA")) {
+					if(tipo.equals("FUEGO") || tipo.equals("AGUA") || tipo.equals("PLANTA")) {
 						Pokemon[] pok_tipo = ent1.miPokedex.buscarPokemonTipo(tipo);
 						for(int i = 0; i < pok_tipo.length; i++) {
 							if(pok_tipo[i] != null) {
