@@ -1,6 +1,6 @@
 
 public class Pokemon {
-	public String apodo;
+	public String apodo = "SALVAJE";
 	public String nombre;
 	public int vida;
 	public int nivel = 1;
@@ -14,8 +14,20 @@ public class Pokemon {
 		this.nombre = nombre;
 	}
 	
-	public void atacar() {
-		System.out.println("Ataco");
+	public void atacar(Pokemon pokeAtacante, Pokemon pokeDañado, Boolean flag) {
+		int daño = pokeAtacante.ataque;
+		pokeDañado.vida = pokeDañado.vida - daño;
+		if(flag == true) {
+			System.out.println(pokeAtacante.apodo + " ha atacado a " + pokeDañado.nombre);
+			System.out.println("La vida de " + pokeDañado.nombre + " bajo a " + pokeDañado.vida);
+		}else {
+			System.out.println(pokeAtacante.nombre + " ha atacado a " + pokeDañado.apodo);
+			System.out.println("La vida de " + pokeDañado.apodo + " bajo a " + pokeDañado.vida);
+		}
+		
+		
+
+
 	}
 	
 	public void obtenerEstadisticas() {

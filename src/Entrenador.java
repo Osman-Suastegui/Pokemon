@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import javax.xml.catalog.Catalog;
 
 public class Entrenador {
@@ -34,17 +36,72 @@ public class Entrenador {
 		}
 	}
 	private Pokemon elegirPokemon(){
-		
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Ingrese el pokemon para pelear: ");
 		System.out.println(this.miPokedex.verPokemon());
-		int posicion = Integer.parseInt(System.console().readLine());
+		int posicion = sc.nextInt();
 		Pokemon pokElegido =  this.miPokedex.buscarPokemon(posicion - 1);
 		return pokElegido;
 
 	}
 	//Pelear contra Pokemon
 	private void pelear(Pokemon miPokemon, Pokemon pokemonSalvaje){
-		
-
-	}
+		Scanner sc = new Scanner(System.in);
+		while(miPokemon.vida > 0 && pokemonSalvaje.vida > 0) {
+			System.out.println("Escoja un numero entre el 1 y el 100:");
+			sc.next();
+			if(seEncontroUnPokemon()) {
+				miPokemon.atacar(miPokemon, pokemonSalvaje, true);
+			}else {
+				pokemonSalvaje.atacar(pokemonSalvaje, miPokemon, false);
+		}
 }
+		if(miPokemon.vida <= 0 ) {
+			System.out.println("Te han derrotado");
+		}else{
+			System.out.println("Haz derrotado al Pokemon " + pokemonSalvaje.nombre);
+			miPokemon.nivel = miPokemon.nivel + 1;
+			System.out.println("¿Deseas capturarlo? 1: Si - 2: No");
+			int resp = sc.nextInt();
+			if(resp == 1) {
+			Atrapar(pokemonSalvaje);	
+			}
+		}
+	}
+	
+	private void Atrapar(Pokemon pokemonAtrapar) {
+		Scanner sc = new Scanner(System.in);
+		int intentos = 3;
+		while(intentos > 0) {
+		System.out.print("Digite un 1 para lanzar una Pokebola: ");
+		sc.next();
+		
+		if(seEncontroUnPokemon()) {
+			
+			
+			System.out.println("Felicidades haz atrapado un " + pokemonAtrapar.nombre);
+			System.out.println("¿Que mote deseas darle a tu nuevo " + pokemonAtrapar.nombre + "?: ");
+			pokemonAtrapar.apodo = sc.next();
+			this.miPokedex.agregarPokemon(pokemonAtrapar);
+			break;
+		}else {
+			intentos = intentos - 1;		
+		}
+			}
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
