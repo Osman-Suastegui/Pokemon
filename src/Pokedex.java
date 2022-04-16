@@ -18,7 +18,7 @@ public class Pokedex extends Catalogo {
     //Buscar pokemon por tipo y regresar todos los pokemon encontrados
     @Override
 	public Pokemon[] buscarPokemonTipo(String tipo) {
-		Pokemon[] pokemon_tipo = new Pokemon[totalPokemon];
+		Pokemon[] pokemon_tipo = new Pokemon[this.totalPokemon];
 		int contador = 0;
 		for(int i = 0; i < this.totalPokemon; i++) {
 			if(misPokemon[i].tipo.equals(tipo)) {
@@ -50,7 +50,7 @@ public class Pokedex extends Catalogo {
 	public String verPokemon() {
 		String str = "";
 		for(int i = 0 ; i < this.totalPokemon; i++) {
-				str = str + (i+1) + ": " + this.misPokemon[i].nombre + "\n";
+				str = str + (i+1) + ": " + this.misPokemon[i].nombre + "-" + this.misPokemon[i].apodo + "\n";
 		}
 	return str;	
 	}

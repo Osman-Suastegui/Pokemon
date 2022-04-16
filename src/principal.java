@@ -1,43 +1,20 @@
 import java.util.Scanner;
 
 public class principal {
-
+  static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		
 		String nombre = "";
-		String apodo;
-		Pokemon pokeElegido;
+		
 		System.out.println("Bienvenido al mejor juego de Pokemon");
 		System.out.print("Ingrese su nombre: " );
 		nombre = sc.nextLine();
+		
 	    Entrenador ent = new Entrenador(nombre);
-		System.out.println("Que Pokemon desea obtener:" );
-		Catalogo cat1 = new Catalogo();
-		System.out.println(cat1.verPokemon());
-		int opcion = sc.nextInt();
-		System.out.print("Felicidades Obtuviste un ");
-		if(opcion == 1) {
-			System.out.println("Charizard");
-		}else if(opcion == 2) {
-			System.out.println("Blastoise");
-		}else {
-			System.out.println("Venusaur");
-		}
-		System.out.println("ï¿½Que mote le deseas poner a tu Pokemon?");
-		apodo = sc.next();
-		if(opcion == 1) {
-			pokeElegido = new Fuego("CHARIZARD", apodo);
-
-		}else if(opcion == 2) {
-			pokeElegido = new Agua("BLASTOISE", apodo);
-
-		}else{
-			pokeElegido = new Planta("VENUSAUR", apodo);
-		}
+		elegirPokemon(ent);
 		
-		ent.miPokedex.agregarPokemon(pokeElegido);
-		
-		opcion = 0;
+		int opcion = 0;
 		while (opcion != 4) {
 			System.out.println("\n   MENU PRINCIPAL");
 			System.out.println("ï¿½Que desea hacer?");
@@ -46,150 +23,75 @@ public class principal {
 			System.out.println("3: Caminar");
 			System.out.println("4: Salir del juego");
 			 opcion = sc.nextInt();
-			switch (opcion) {
+			 
+		switch (opcion) {
 			case 1:
-				mostrarCatalogo();
+				MenuCatalogo.mostrarCatalogo();
 				break;
+				
 			case 2:
-				mostrarPokedex(ent);
+				MenuPokedex.mostrarPokedex(ent);
 				break;
+				
 			case 3:
-				ent.caminar();
+				System.out.print("Pulse una tecla para dar 1 paso: ");
+				sc.next();
+				if(ent.caminar()) { //si se encuentra un pokemon caminando retorna true
+					Catalogo cat = new Catalogo();
+					int posicion = (int) (Math.random() * cat.obtenerTotalPokemones()) + 1;	
+					Pokemon pokemonAleatorio = cat.pokemon[posicion - 1];
+					
+					System.out.println("Te haz encontra con un " + pokemonAleatorio.nombre + " salvaje"); 
+					System.out.println("Ingrese el pokemon para pelear: ");
+					System.out.println(ent.miPokedex.verPokemon());
+					int posicion2 = sc.nextInt();
+					Pokemon pokElegido = ent.elegirPokemon(posicion2);
+					ent.pelear(pokElegido, pokemonAleatorio);
+				}else {
+					System.out.println("No ha pasado nada...");
+				}
+				
 				break;
+				
 			case 4:
 				System.out.println("Saliendo del juego...");
 				break;
+				
 			default:
 				System.out.println("Opcion no valida");
 				break;
+				
 			}
 		
 		}
 	}
 	
-	public static int mostrarCatalogo() {
-		Scanner sc = new Scanner(System.in);
-		Catalogo catalogo = new Catalogo();
-		int opcion = 0;
-		int resp = 1;
-		while(opcion != 4) {
+	public static void elegirPokemon(Entrenador ent){
 
-			System.out.println("\n  MENU CATALOGO");
-			System.out.println("1: Buscar Pokemon por nombre");
-			System.out.println("2: Buscar Pokemon por tipo");
-			System.out.println("3: Ver todos los Pokemon disponibles en el juego");
-			System.out.println("4: Volver al menu principal");
-
-			opcion = sc.nextInt();
-			switch(opcion) {
-				case 1:
-					System.out.print("Ingrese el nombre del pokemon: ");
-					String nombre = sc.next();
-					int posicion = catalogo.existePokemon(nombre);
-					if(posicion == -1) {
-						System.out.println("El pokemon " + nombre + " no se encuentra");
-					}else {
-						catalogo.buscarPokemon(posicion).obtenerEstadisticas();
-					}
-					break;
-				case 2:
-					System.out.print("Ingrese el tipo del pokemon: ");
-					String tipo = sc.next();
-					Pokemon[] pok_tipo = catalogo.buscarPokemonTipo(tipo);
-
-					for(int i = 0; i < pok_tipo.length; i++) {
-						if(pok_tipo[i] != null) {
-							pok_tipo[i].obtenerEstadisticas();	
-						}
-						
-					}
-					break;
-				case 3:
-					System.out.println(catalogo.verPokemon());
-					break;
-				case 4:
-					return 0;
-				default:
-					System.out.println("Opcion invalida");
-					break;
-				
-				}
-
-			
-		}
-
-
-		sc.close();
-		return 0;
+		Pokemon pokeElegido;
+		String apodo;
+		Catalogo cat1 = new Catalogo();
+		
+		System.out.println("Que Pokemon desea obtener:" );
+		System.out.println(cat1.verPokemon());
+		int opcion = sc.nextInt();
+		
+		System.out.print("Felicidades Obtuviste un ");
+		System.out.println(cat1.pokemon[opcion-1].nombre);
+		
+		System.out.println("¿Que mote le deseas poner a tu Pokemon?");
+		apodo = sc.next();
+		
+		pokeElegido = cat1.pokemon[opcion];
+		pokeElegido.apodo = apodo;
 		
 		
+		ent.miPokedex.agregarPokemon(pokeElegido);
 	}
 	
-	public static int mostrarPokedex(Entrenador ent1) {
-		
-		Scanner sc = new Scanner(System.in);
-		int opcion = 0;
-		int resp = 1;
-		while(opcion != 4) {
 
-			System.out.println("\n  MENU POKEDEX");
-			System.out.println("1: Buscar tus Pokemon por mote");
-			System.out.println("2: Buscar tus Pokemon por tipo");
-			System.out.println("3: Ver todos tus Pokemon");
-			System.out.println("4: Volver al menu principal");
-	
-			opcion = sc.nextInt();
-			switch(opcion) {
-				case 1:
-					System.out.print("Ingrese el apodo del pokemon: ");
-					String apodo = sc.next();
-					int posicion = ent1.miPokedex.existePokemon(apodo);
-					if(posicion == -1) {
-						System.out.println("El pokemon con mote " + apodo + " no se encuentra");
-					}else {
-						System.out.println("Pokemon con mote " + apodo +" Encontrado!");
-						ent1.miPokedex.buscarPokemon(posicion).obtenerEstadisticas();
-					}
-					break;
-				case 2:
-					System.out.print("Ingrese el tipo del pokemon: ");
-					String tipo = sc.next();
-					if(tipo.equals("FUEGO") || tipo.equals("AGUA") || tipo.equals("PLANTA")) {
-						Pokemon[] pok_tipo = ent1.miPokedex.buscarPokemonTipo(tipo);
-						for(int i = 0; i < pok_tipo.length; i++) {
-							if(pok_tipo[i] != null){
-								System.out.println("Pokemon de tipo " + tipo +" Encontrado!");
-								pok_tipo[i].obtenerEstadisticas();	
-							}
-							
-						}
-						
-						
-					}else {
-						System.out.println("El entrenador Pokemon " + ent1.obtenerNombre() + " no cuenta con Pokemon tipo: " + tipo );
-					}
-						
-					break;
-				case 3:
-					System.out.println(ent1.miPokedex.verPokemon());
-					break;
-				case 4:
-					return 0;
-				default:
-					System.out.println("Opcion invalida");
-					break;
-				
-				}
-	
-		}
-		sc.close();
-		return 0;
-	}
 
-	public static void caminar(Entrenador ent) {
-		
-		
-	}
+
 	
 
 }
