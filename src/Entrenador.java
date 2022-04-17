@@ -16,7 +16,7 @@ public class Entrenador {
 	}
 
 	
-	public Boolean generarProbabilidad(){
+	private Boolean generarProbabilidad(){
 		int probabilidad =  (int) (Math.random() * 100) + 1;	
 		return probabilidad >= 50 ? true:false;
 		}

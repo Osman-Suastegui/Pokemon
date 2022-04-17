@@ -47,9 +47,11 @@ public class principal {
 					int posicion2 = sc.nextInt();
 					Pokemon pokElegido = ent.elegirPokemon(posicion2);
 					ent.pelear(pokElegido, pokemonAleatorio);
+					
 				}else {
 					System.out.println("No ha pasado nada...");
 				}
+				
 				
 				break;
 				
@@ -82,7 +84,7 @@ public class principal {
 		System.out.println("¿Que mote le deseas poner a tu Pokemon?");
 		apodo = sc.next();
 		
-		pokeElegido = cat1.pokemon[opcion];
+		pokeElegido = cat1.pokemon[opcion-1];
 		pokeElegido.apodo = apodo;
 		
 		
