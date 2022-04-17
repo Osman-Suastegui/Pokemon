@@ -18,7 +18,7 @@ public class Entrenador {
 	
 	private Boolean generarProbabilidad(){
 		int probabilidad =  (int) (Math.random() * 100) + 1;	
-		return probabilidad >= 50 ? true:false;
+		return probabilidad >= 50;
 		}
 
 	
@@ -35,10 +35,12 @@ public class Entrenador {
 		}
 
 	public void pelear(Pokemon miPokemon, Pokemon pokemonSalvaje){
-				Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
+		
 			while(miPokemon.vida > 0 && pokemonSalvaje.vida > 0) {
 				System.out.println("Escoja un numero entre el 1 y el 100 para determinar que Pokemon atacara:");
 				sc.next();
+				
 			if(generarProbabilidad()) {
 				System.out.println("Tu Pokemon atacara!!");
 				miPokemon.atacar(miPokemon, pokemonSalvaje, true);
@@ -46,37 +48,40 @@ public class Entrenador {
 				System.out.println("El Pokemon salvaje atacara!!");
 				pokemonSalvaje.atacar(pokemonSalvaje, miPokemon, false);
 				  } 
-																  } // llave while
+					}
+			// llave while
+			
+			// ya hay un ganador a partir de aqui
 			if(miPokemon.vida <= 0 ) {
 				System.out.println("Te han derrotado");
-			if(miPokemon.nombre == "CHARIZARD") {
-				miPokemon.vida = 70;
+			
 			}else{
-				miPokemon.vida = 80;
-			}
-			}else{
-				System.out.println("Haz derrotado al Pokemon salvaje " + pokemonSalvaje.nombre);
+				System.out.println("Haz derrotado al Pokemon salvaje " + pokemonSalvaje.nombre);			
+				
 				miPokemon.nivel = miPokemon.nivel + 1;
 				System.out.println(miPokemon.apodo + " ha subido a nivel " + miPokemon.nivel);
-			if(miPokemon.nombre == "CHARIZARD") {
-				miPokemon.vida = 70;
-			}else{
-				miPokemon.vida = 80;
-				 }
-			if(this.miPokedex.totalPokemon < 3) {	
-				System.out.println("¿Deseas capturar al pokemon salvaje " + pokemonSalvaje.nombre +  " ? 1: Si - 2: No");
+
+			if(this.miPokedex.totalPokemon < this.miPokedex.limite) {	
+				System.out.println("¿Deseas capturar al pokemon salvaje " + pokemonSalvaje.nombre +  " ?\n1: Si - 2: No");
 				int resp = sc.nextInt();
 			if(resp == 1) {
 				Atrapar(pokemonSalvaje);	
 						  }
 					}
 				 }
-																	} // fin llave metodo pelear
+				Curar(miPokemon);
+					} // fin llave metodo pelear
+	
+	
+	private void Curar(Pokemon miPokemon) {
+		miPokemon.vida = miPokemon.vidaTotal;
+	}
+	
 	
 	private void Atrapar(Pokemon pokemonAtrapar) {
-			Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
-			int intentos = 1;
+		int intentos = 1;
 		while(intentos <= 3) {
 			System.out.println("Intento numero: " + intentos);	
 			System.out.print("Digite un 1 para lanzar una Pokebola: ");
@@ -85,14 +90,12 @@ public class Entrenador {
 		if(generarProbabilidad()) {
 			System.out.println("Felicidades haz atrapado un " + pokemonAtrapar.nombre);
 			System.out.println("¿Que mote deseas darle a tu nuevo " + pokemonAtrapar.nombre + "?: ");
-			pokemonAtrapar.apodo = sc.next();
-		if(pokemonAtrapar.nombre == "CHARIZARD") {
-			pokemonAtrapar.vida = 70;
-		}else{
-			pokemonAtrapar.vida = 80;
-			 }
+			pokemonAtrapar.apodo = sc.nextLine();
+			
+			Curar(pokemonAtrapar);
 			this.miPokedex.agregarPokemon(pokemonAtrapar);
-		break;
+			
+			break;
 		
 		}else{
 			System.out.println("El " + pokemonAtrapar.nombre + " se ha escapado de la Pokebola");

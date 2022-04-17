@@ -8,6 +8,7 @@ public class Fuego extends Pokemon {
         this.fuerteContra = "PLANTA";
         this.debilContra = "AGUA";
         this.vida = 70;
+    	this.vidaTotal = 70;
     }
     
     public Fuego(String nombre, String apodo) {
@@ -19,6 +20,7 @@ public class Fuego extends Pokemon {
         this.fuerteContra = "PLANTA";
         this.debilContra = "AGUA";
         this.vida = 70;
+    	this.vidaTotal = 70;
     }
     
     @Override

@@ -3,6 +3,7 @@ public class Pokemon {
 	public String apodo = "SALVAJE";
 	public String nombre;
 	public int vida;
+	public int vidaTotal;
 	public int nivel = 1;
 	public String tipo;
 	public int ataque;
@@ -14,46 +15,42 @@ public class Pokemon {
 		this.nombre = nombre;
 	}
 	
-	public void atacar(Pokemon pokeAtacante, Pokemon pokeDañado, Boolean flag) {
+	public void atacar(Pokemon pokeAtacante, Pokemon pokeDañado, Boolean miPokeAtaca) {
 		
+		//FORMULA DEL DAÑO
 		int daño = ((pokeAtacante.ataque +10) * pokeAtacante.nivel) - (pokeDañado.defensa * pokeDañado.nivel);
 		
+		//CALCULO DEL DAÑO HECHO
 			if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo) ) {
-				pokeDañado.vida = pokeDañado.vida - daño*2;				
-			   }else if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
-				pokeDañado.vida = pokeDañado.vida - daño-5;
-			   }else {
-				pokeDañado.vida = pokeDañado.vida - daño;
+				 daño *= 2;				
 			   }
 			
-			if(flag == true) {
-					System.out.println(pokeAtacante.apodo + " ataco al " + pokeDañado.nombre + " salvaje");
-			if(pokeDañado.vida < 0 ) {
-				
-			}else{
-				if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo)) 		{
-					System.out.println("ES UN ATAQUE SUPER EFICAZ");
-				}else if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) 	{
-					System.out.println("NO ES UN ATAQUE MUY EFECTIVO");
-				}
-					System.out.println("La vida del " + pokeDañado.nombre + " salvaje bajo a " + pokeDañado.vida);
-				}
+			if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
+				daño -= 5;
+			   }
 			
-			}else{
-					System.out.println("el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDañado.apodo);
-						if(pokeDañado.vida < 0){
+				pokeDañado.vida -= daño;
+			
+				String mInicio = miPokeAtaca ? pokeAtacante.apodo + " ataco al " + pokeDañado.nombre + " salvaje": "el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDañado.apodo;
+				String mFin = miPokeAtaca ? "La vida del " + pokeDañado.nombre + " bajo a " + pokeDañado.vida:"La vida de " + pokeDañado.apodo + " bajo a " + pokeDañado.vida;
+			
+
+				System.out.println(mInicio);
 				
-			}else{
-				if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo)) 		{
+				if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo)) {
 					System.out.println("ES UN ATAQUE SUPER EFICAZ");
-				 }else if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
+						}
+					
+				if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
 					System.out.println("NO ES UN ATAQUE MUY EFECTIVO");
-				 }
-					System.out.println("La vida de " + pokeDañado.apodo + " bajo a " + pokeDañado.vida);
-				 }
-		
-			   	 } 
-																				} // llave cierre del metodo
+						}
+				
+				if(pokeDañado.vida > 0 ) {
+					System.out.println(mFin);
+						}
+				
+				
+					} // llave cierre del metodo
 	
 	public void obtenerEstadisticas() {
 		System.out.println("Nombre: " + this.nombre);
