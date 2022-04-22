@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class principal {
   static Scanner sc = new Scanner(System.in);
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args)
+		{
 		
 		String nombre = "";
 		
@@ -34,25 +35,7 @@ public class principal {
 				break;
 				
 			case 3:
-				System.out.print("Pulse una tecla para dar 1 paso: ");
-				sc.next();
-				if(ent.caminar()) { //si se encuentra un pokemon caminando retorna true
-					Catalogo cat = new Catalogo();
-					int posicion = (int) (Math.random() * cat.obtenerTotalPokemones()) + 1;	
-					Pokemon pokemonAleatorio = cat.pokemon[posicion - 1];
-					
-					System.out.println("Te haz encontra con un " + pokemonAleatorio.nombre + " salvaje"); 
-					System.out.println("Ingrese el pokemon para pelear: ");
-					System.out.println(ent.miPokedex.verPokemon());
-					int posicion2 = sc.nextInt();
-					Pokemon pokElegido = ent.elegirPokemon(posicion2);
-					ent.pelear(pokElegido, pokemonAleatorio);
-					
-				}else {
-					System.out.println("No ha pasado nada...");
-				}
-				
-				
+				caminar(ent);
 				break;
 				
 			case 4:
@@ -66,6 +49,27 @@ public class principal {
 			}
 		
 		}
+	}
+
+	public static void caminar(Entrenador ent){
+		System.out.print("Pulse una tecla para dar 1 paso: ");
+		sc.next();
+		if(ent.caminar()) { //si se encuentra un pokemon caminando retorna true
+			Catalogo cat = new Catalogo();
+			int posicion = (int) (Math.random() * cat.obtenerTotalPokemones()) + 1;	
+			Pokemon pokemonAleatorio = cat.pokemon[posicion - 1];
+			
+			System.out.println("Te haz encontra con un " + pokemonAleatorio.nombre + " salvaje"); 
+			System.out.println("Ingrese el pokemon para pelear: ");
+			System.out.println(ent.miPokedex.verPokemon());
+			int posicion2 = sc.nextInt();
+			Pokemon pokElegido = ent.elegirPokemon(posicion2);
+			ent.pelear(pokElegido, pokemonAleatorio);
+			
+		}else {
+			System.out.println("No ha pasado nada...");
+		}
+		
 	}
 	
 	public static void elegirPokemon(Entrenador ent){
@@ -81,7 +85,7 @@ public class principal {
 		System.out.print("Felicidades Obtuviste un ");
 		System.out.println(cat1.pokemon[opcion-1].nombre);
 		
-		System.out.println("¿Que mote le deseas poner a tu Pokemon?");
+		System.out.println("ï¿½Que mote le deseas poner a tu Pokemon?");
 		apodo = sc.next();
 		
 		pokeElegido = cat1.pokemon[opcion-1];
@@ -90,10 +94,6 @@ public class principal {
 		
 		ent.miPokedex.agregarPokemon(pokeElegido);
 	}
-	
-
-
-
-	
+		
 
 }
