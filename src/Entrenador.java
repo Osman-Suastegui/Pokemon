@@ -90,7 +90,7 @@ public class Entrenador {
 		if(generarProbabilidad()) {
 			System.out.println("Felicidades haz atrapado un " + pokemonAtrapar.nombre);
 			System.out.println("¿Que mote deseas darle a tu nuevo " + pokemonAtrapar.nombre + "?: ");
-			pokemonAtrapar.apodo = sc.nextLine();
+			pokemonAtrapar.apodo = sc.next();
 			
 			Curar(pokemonAtrapar);
 			this.miPokedex.agregarPokemon(pokemonAtrapar);

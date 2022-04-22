@@ -27,7 +27,7 @@ public class MenuCatalogo {
 					if(posicion == -1) {
 						System.out.println("El pokemon " + nombre + " no se encuentra");
 					}else {
-						catalogo.buscarPokemon(posicion).obtenerEstadisticas();
+						System.out.println(catalogo.buscarPokemon(posicion).obtenerEstadisticas());
 					}
 					break;
 					
@@ -38,7 +38,7 @@ public class MenuCatalogo {
 
 					for(int i = 0; i < pok_tipo.length; i++) {
 						if(pok_tipo[i] != null) {
-							pok_tipo[i].obtenerEstadisticas();	
+							System.out.println(pok_tipo[i].obtenerEstadisticas());							
 						}
 						
 					}

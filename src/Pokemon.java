@@ -11,56 +11,64 @@ public class Pokemon {
  	public String fuerteContra;
 	public String debilContra;
 	
-	public Pokemon(String nombre) {
+	public Pokemon(String nombre,int vida, int vidaTotal, String tipo, int ataque,int defensa, String fuerteContra, String debilContra ) {
 		this.nombre = nombre;
+		this.vida = vida;
+		this.vidaTotal = vidaTotal;
+		this.ataque = ataque;
+		this.defensa = defensa;
+		this.fuerteContra = fuerteContra;
+		this.debilContra = debilContra;
 	}
 	
-	public void atacar(Pokemon pokeAtacante, Pokemon pokeDañado, Boolean miPokeAtaca) {
+	public void atacar(Pokemon pokeAtacante, Pokemon pokeDanado, Boolean miPokeAtaca) {
 		
-		//FORMULA DEL DAÑO
-		int daño = ((pokeAtacante.ataque +10) * pokeAtacante.nivel) - (pokeDañado.defensa * pokeDañado.nivel);
+		//FORMULA DEL dano
+		int dano = ((pokeAtacante.ataque +10) * pokeAtacante.nivel) - (pokeDanado.defensa * pokeDanado.nivel);
 		
-		//CALCULO DEL DAÑO HECHO
-			if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo) ) {
-				 daño *= 2;				
+		//CALCULO DEL dano HECHO
+			if(pokeAtacante.fuerteContra.equals(pokeDanado.tipo) ) {
+				 dano *= 2;				
 			   }
 			
-			if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
-				daño -= 5;
+			if(pokeAtacante.debilContra.equals(pokeDanado.tipo)) {
+				dano -= 5;
 			   }
 			
-				pokeDañado.vida -= daño;
+				pokeDanado.vida -= dano;
 			
-				String mInicio = miPokeAtaca ? pokeAtacante.apodo + " ataco al " + pokeDañado.nombre + " salvaje": "el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDañado.apodo;
-				String mFin = miPokeAtaca ? "La vida del " + pokeDañado.nombre + " bajo a " + pokeDañado.vida:"La vida de " + pokeDañado.apodo + " bajo a " + pokeDañado.vida;
+				String mInicio = miPokeAtaca ? pokeAtacante.apodo + " ataco al " + pokeDanado.nombre + " salvaje": "el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDanado.apodo;
+				String mFin = miPokeAtaca ? "La vida del " + pokeDanado.nombre + " bajo a " + pokeDanado.vida:"La vida de " + pokeDanado.apodo + " bajo a " + pokeDanado.vida;
 			
 
 				System.out.println(mInicio);
 				
-				if(pokeAtacante.fuerteContra.equals(pokeDañado.tipo)) {
+				if(pokeAtacante.fuerteContra.equals(pokeDanado.tipo)) {
 					System.out.println("ES UN ATAQUE SUPER EFICAZ");
 						}
 					
-				if(pokeAtacante.debilContra.equals(pokeDañado.tipo)) {
+				if(pokeAtacante.debilContra.equals(pokeDanado.tipo)) {
 					System.out.println("NO ES UN ATAQUE MUY EFECTIVO");
 						}
 				
-				if(pokeDañado.vida > 0 ) {
+				if(pokeDanado.vida > 0 ) {
 					System.out.println(mFin);
 						}
 				
 				
 					} // llave cierre del metodo
 	
-	public void obtenerEstadisticas() {
-		System.out.println("Nombre: " + this.nombre);
-		System.out.println("Nivel: " + this.nivel);
-		System.out.println("Tipo: " + this.tipo);
-		System.out.println("Vida: " + this.vida);
-		System.out.println("Ataque: " + this.ataque);
-		System.out.println("Defensa: " + this.defensa);
-		System.out.println("Fortalezas: " + this.fuerteContra);
-		System.out.println("Debilidades: " + this.debilContra);
+	public String obtenerEstadisticas() {
+		String str = "";
+		str += "Nombre: " + nombre + "\n";
+		str += "Nivel: " + nivel + "\n";
+		str += "Tipo: " + tipo + "\n";
+		str += "Vida: " + vida + "\n";
+		str += "Ataque: " + ataque + "\n";
+		str += "Defensa: " + defensa + "\n";
+		str += "Fortalezas: " + fuerteContra + "\n";
+		str += "Debilidades: " + debilContra;
+		return str;
 
 	}
 

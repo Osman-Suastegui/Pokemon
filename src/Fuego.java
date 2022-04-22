@@ -1,32 +1,17 @@
 public class Fuego extends Pokemon {
 
     public Fuego(String nombre) {
-        super(nombre);
-        this.tipo = "FUEGO";
-        this.ataque = 20;
-        this.defensa = 10;
-        this.fuerteContra = "PLANTA";
-        this.debilContra = "AGUA";
-        this.vida = 70;
-    	this.vidaTotal = 70;
+        super(nombre,70,70,"FUEGO",20,10,"PLANTA","AGUA");
     }
     
     public Fuego(String nombre, String apodo) {
-        super(nombre);
+        super(nombre,70,70,"FUEGO",20,10,"PLANTA","AGUA");
         this.apodo = apodo;
-        this.tipo = "FUEGO";
-        this.ataque = 20;
-        this.defensa = 10;
-        this.fuerteContra = "PLANTA";
-        this.debilContra = "AGUA";
-        this.vida = 70;
-    	this.vidaTotal = 70;
     }
     
     @Override
-    public void obtenerEstadisticas() {
-    	System.out.println("Mote: " + this.apodo);
-    	super.obtenerEstadisticas();
+    public String obtenerEstadisticas() {
+        return "Mote: " + this.apodo + "\n" + super.obtenerEstadisticas();
     }
     
     

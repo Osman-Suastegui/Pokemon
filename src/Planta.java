@@ -1,32 +1,17 @@
 public class Planta extends Pokemon {
     
     public Planta(String nombre) {
-        super(nombre);
-        this.tipo = "PLANTA";
-        this.ataque = 10;
-        this.defensa = 10;
-        this.fuerteContra = "AGUA";
-        this.debilContra = "FUEGO";
-        this.vida = 90;
-        this.vidaTotal = 90;
+        super(nombre,90,90,"PLANTA",10,10,"AGUA","FUEGO");
     }
     
     public Planta(String nombre, String apodo) {
-        super(nombre);
+        super(nombre,90,90,"PLANTA",10,10,"AGUA","FUEGO");
         this.apodo = apodo;
-        this.tipo = "PLANTA";
-        this.ataque = 10;
-        this.defensa = 10;
-        this.fuerteContra = "AGUA";
-        this.debilContra = "FUEGO";
-        this.vida = 90;
-        this.vidaTotal = 90;
     }
     
     @Override
-    public void obtenerEstadisticas() {
-    	System.out.println("Mote: " + this.apodo);
-    	super.obtenerEstadisticas();
+    public String obtenerEstadisticas() {
+        return "Mote: " + this.apodo + "\n" + super.obtenerEstadisticas();
     }
     
     

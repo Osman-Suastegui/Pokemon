@@ -1,32 +1,17 @@
 public class Agua extends Pokemon {
     
         public Agua(String nombre) {
-            super(nombre);
-            this.tipo = "AGUA";
-            this.ataque = 5;
-            this.defensa = 15;
-            this.fuerteContra = "FUEGO";
-            this.debilContra = "PLANTA";
-            this.vida = 95;
-            this.vidaTotal = 95;
+            super(nombre,95,95,"AGUA",10,15,"FUEGO","PLANTA");
         }
     
         public Agua(String nombre, String apodo) {
-            super(nombre);
+            super(nombre,95,95,"AGUA",10,15,"FUEGO","PLANTA");
             this.apodo = apodo;
-            this.tipo = "AGUA";
-            this.ataque = 5;
-            this.defensa = 15;
-            this.fuerteContra = "FUEGO";
-            this.debilContra = "PLANTA";
-            this.vida = 95;
-            this.vidaTotal = 95;
         }
     
         @Override
-        public void obtenerEstadisticas() {
-        	System.out.println("Mote: " + this.apodo);
-        	super.obtenerEstadisticas();
+        public String obtenerEstadisticas() {
+            return "Mote: " + this.apodo + "\n" + super.obtenerEstadisticas();
         }
         
         

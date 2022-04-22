@@ -25,7 +25,7 @@ public class MenuPokedex {
 						System.out.println("El pokemon con mote " + apodo + " no se encuentra");
 					}else {
 						System.out.println("Pokemon con mote " + apodo +" Encontrado!");
-						ent1.miPokedex.buscarPokemon(posicion).obtenerEstadisticas();
+						System.out.println(ent1.miPokedex.buscarPokemon(posicion).obtenerEstadisticas());
 					}
 					break;
 					
@@ -37,7 +37,7 @@ public class MenuPokedex {
 						for(int i = 0; i < pok_tipo.length; i++) {
 							if(pok_tipo[i] != null){
 								System.out.println("Pokemon de tipo " + tipo +" Encontrado!");
-								pok_tipo[i].obtenerEstadisticas();	
+								System.out.println(pok_tipo[i].obtenerEstadisticas());
 							}	
 						}
 					}else {
