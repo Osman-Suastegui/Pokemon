@@ -1,27 +1,28 @@
 
 public class Pokemon {
-	public String apodo = "SALVAJE";
-	public String nombre;
-	public int vida;
-	public int vidaTotal;
-	public int nivel = 1;
-	public String tipo;
-	public int ataque;
-	public int defensa;
- 	public String fuerteContra;
-	public String debilContra;
+	protected String apodo = "SALVAJE";
+	protected String nombre;
+	protected int vida;
+	protected int vidaTotal;
+	protected int nivel = 1;
+	protected String tipo;
+	protected int ataque;
+	protected int defensa;
+	protected String fuerteContra;
+	protected String debilContra;
 	
-	public Pokemon(String nombre,int vida, int vidaTotal, String tipo, int ataque,int defensa, String fuerteContra, String debilContra ) {
+	protected Pokemon(String nombre,int vida, int vidaTotal, String tipo, int ataque,int defensa, String fuerteContra, String debilContra ) {
 		this.nombre = nombre;
 		this.vida = vida;
 		this.vidaTotal = vidaTotal;
+		this.tipo = tipo;
 		this.ataque = ataque;
 		this.defensa = defensa;
 		this.fuerteContra = fuerteContra;
 		this.debilContra = debilContra;
 	}
 	
-	public void atacar(Pokemon pokeAtacante, Pokemon pokeDanado, Boolean miPokeAtaca) {
+	protected void atacar(Pokemon pokeAtacante, Pokemon pokeDanado, Boolean miPokeAtaca) {
 		
 		//FORMULA DEL dano
 		int dano = ((pokeAtacante.ataque +10) * pokeAtacante.nivel) - (pokeDanado.defensa * pokeDanado.nivel);
@@ -58,7 +59,7 @@ public class Pokemon {
 				
 					} // llave cierre del metodo
 	
-	public String obtenerEstadisticas() {
+	protected String obtenerEstadisticas() {
 		String str = "";
 		str += "Nombre: " + nombre + "\n";
 		str += "Nivel: " + nivel + "\n";

@@ -74,7 +74,7 @@ public class principal {
 	
 	public static void elegirPokemon(Entrenador ent){
 
-		Pokemon pokeElegido;
+		
 		String apodo;
 		Catalogo cat1 = new Catalogo();
 		
@@ -83,14 +83,22 @@ public class principal {
 		int opcion = sc.nextInt();
 		
 		System.out.print("Felicidades Obtuviste un ");
-		System.out.println(cat1.pokemon[opcion-1].nombre);
+		String nomPokemon = cat1.pokemon[opcion-1].nombre;
+		String tipoPokemon = cat1.pokemon[opcion-1].tipo;
+		System.out.println(nomPokemon);
 		
 		System.out.println("�Que mote le deseas poner a tu Pokemon?");
 		apodo = sc.next();
 		
-		pokeElegido = cat1.pokemon[opcion-1];
-		pokeElegido.apodo = apodo;
+		Pokemon pokeElegido;
 		
+		if(tipoPokemon == "FUEGO") {
+			pokeElegido = new Fuego(nomPokemon,apodo);
+		}else if (tipoPokemon == "AGUA") {
+			pokeElegido = new Agua(nomPokemon,apodo);
+		}else { // tipoPokemon == "PLANTA"
+			pokeElegido = new Planta(nomPokemon,apodo);
+		}
 		
 		ent.miPokedex.agregarPokemon(pokeElegido);
 	}

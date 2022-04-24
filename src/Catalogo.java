@@ -1,5 +1,4 @@
-import java.util.Arrays;  
-public class Catalogo {
+ public class Catalogo {
 	
 	private int totalPokemones = 3;
 	Pokemon[] pokemon = new Pokemon[totalPokemones];

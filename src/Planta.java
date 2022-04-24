@@ -1,11 +1,11 @@
 public class Planta extends Pokemon {
     
     public Planta(String nombre) {
-        super(nombre,90,90,"PLANTA",10,10,"AGUA","FUEGO");
+        super(nombre,90,90,"PLANTA",20,10,"AGUA","FUEGO");
     }
     
     public Planta(String nombre, String apodo) {
-        super(nombre,90,90,"PLANTA",10,10,"AGUA","FUEGO");
+        super(nombre,90,90,"PLANTA",20,10,"AGUA","FUEGO");
         this.apodo = apodo;
     }
     
