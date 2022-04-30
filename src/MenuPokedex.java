@@ -31,7 +31,7 @@ public class MenuPokedex {
 					
 				case 2:
 					System.out.print("Ingrese el tipo del pokemon: ");
-					String tipo = sc.next();
+					String tipo = sc.next().toUpperCase();
 					if(tipo.equals("FUEGO") || tipo.equals("AGUA") || tipo.equals("PLANTA")) {
 						Pokemon[] pok_tipo = ent1.miPokedex.buscarPokemonTipo(tipo);
 						for(int i = 0; i < pok_tipo.length; i++) {

@@ -54,7 +54,9 @@ public class Pokedex extends Catalogo {
 		}
 	return str;	
 	}
-    
+	public boolean estaLlena() {
+		return this.obtenerTotalPokemones() < this.limite;
+	}    
    
     
 

@@ -10,8 +10,8 @@ public class Pokemon {
 	protected int defensa;
 	protected String fuerteContra;
 	protected String debilContra;
-	
-	protected Pokemon(String nombre,int vida, int vidaTotal, String tipo, int ataque,int defensa, String fuerteContra, String debilContra ) {
+
+	protected Pokemon(String nombre, int vida, int vidaTotal, String tipo, int ataque, int defensa, String fuerteContra,String debilContra) {
 		this.nombre = nombre;
 		this.vida = vida;
 		this.vidaTotal = vidaTotal;
@@ -21,44 +21,17 @@ public class Pokemon {
 		this.fuerteContra = fuerteContra;
 		this.debilContra = debilContra;
 	}
-	
-	protected void atacar(Pokemon pokeAtacante, Pokemon pokeDanado, Boolean miPokeAtaca) {
-		
-		//FORMULA DEL dano
-		int dano = ((pokeAtacante.ataque +10) * pokeAtacante.nivel) - (pokeDanado.defensa * pokeDanado.nivel);
-		
-		//CALCULO DEL dano HECHO
-			if(pokeAtacante.fuerteContra.equals(pokeDanado.tipo) ) {
-				 dano *= 2;				
-			   }
-			
-			if(pokeAtacante.debilContra.equals(pokeDanado.tipo)) {
-				dano -= 5;
-			   }
-			
-				pokeDanado.vida -= dano;
-			
-				String mInicio = miPokeAtaca ? pokeAtacante.apodo + " ataco al " + pokeDanado.nombre + " salvaje": "el " + pokeAtacante.nombre + " salvaje ataco a " + pokeDanado.apodo;
-				String mFin = miPokeAtaca ? "La vida del " + pokeDanado.nombre + " bajo a " + pokeDanado.vida:"La vida de " + pokeDanado.apodo + " bajo a " + pokeDanado.vida;
-			
 
-				System.out.println(mInicio);
-				
-				if(pokeAtacante.fuerteContra.equals(pokeDanado.tipo)) {
-					System.out.println("ES UN ATAQUE SUPER EFICAZ");
-						}
-					
-				if(pokeAtacante.debilContra.equals(pokeDanado.tipo)) {
-					System.out.println("NO ES UN ATAQUE MUY EFECTIVO");
-						}
-				
-				if(pokeDanado.vida > 0 ) {
-					System.out.println(mFin);
-						}
-				
-				
-					} // llave cierre del metodo
-	
+	protected int atacar(Pokemon pokeDanado) {
+		// FORMULA DEL dano
+		int danoHecho = ((this.ataque + 10) * this.nivel) - (pokeDanado.defensa * pokeDanado.nivel);
+		// CALCULO DEL dano HECHO
+		if (this.fuerteContra.equals(pokeDanado.tipo)) danoHecho *= 2;
+		if (this.debilContra.equals(pokeDanado.tipo)) danoHecho -= 5;
+		return danoHecho;
+
+	} // llave cierre del metodo
+
 	protected String obtenerEstadisticas() {
 		String str = "";
 		str += "Nombre: " + nombre + "\n";
@@ -71,6 +44,9 @@ public class Pokemon {
 		str += "Debilidades: " + debilContra;
 		return str;
 
+	}
+	public void subirNivel(){
+		this.nivel++;
 	}
 
 }

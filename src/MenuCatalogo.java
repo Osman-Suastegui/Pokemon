@@ -20,7 +20,7 @@ public class MenuCatalogo {
 		
 				case 1:
 					System.out.println("Ingrese el nombre del pokemon: ");
-					String nombre = sc.next();
+					String nombre = sc.next().toUpperCase();
 					
 					int posicion = catalogo.existePokemon(nombre);
 					
@@ -33,9 +33,8 @@ public class MenuCatalogo {
 					
 				case 2:
 					System.out.print("Ingrese el tipo del pokemon: ");
-					String tipo = sc.next();
+					String tipo = sc.next().toUpperCase();
 					Pokemon[] pok_tipo = catalogo.buscarPokemonTipo(tipo);
-
 					for(int i = 0; i < pok_tipo.length; i++) {
 						if(pok_tipo[i] != null) {
 							System.out.println(pok_tipo[i].obtenerEstadisticas());							

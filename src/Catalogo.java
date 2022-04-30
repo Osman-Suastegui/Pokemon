@@ -18,7 +18,7 @@
 	public int obtenerTotalPokemones() {
 		return this.totalPokemones;
 	}
-	
+		
 	 //Ver si existe el pokemon buscandolo por nombre
 	public int existePokemon(String nombre) {
 		for(int i = 0 ; i < totalPokemones; i++) {
