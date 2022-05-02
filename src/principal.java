@@ -101,12 +101,13 @@ public class principal {
 			// YA HAY UN GANADOR
 			if (pelea.obtenerGanador() == 2) {
 				System.out.println("Te han derrotado");
+				ent.CurarPokemon(pokelegido);
 			} else {
 				System.out.println("Haz derrotado al Pokemon salvaje " + pokemonSalvaje.nombre);
 				pokelegido.subirNivel();
 				System.out.println(pokelegido.apodo + " ha subido a nivel " + pokelegido.nivel);
 
-				if (!ent.miPokedex.estaLlena()) {
+				if (ent.miPokedex.estaLlena() == false) {
 					System.out.println("�Deseas capturar al pokemon salvaje " + pokemonSalvaje.nombre);
 					System.out.println("1: Si");
 					System.out.println("2: No");
