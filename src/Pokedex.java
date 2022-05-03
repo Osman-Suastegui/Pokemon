@@ -2,7 +2,7 @@
 public class Pokedex extends Catalogo {
     private int totalPokemon = 0;
     private int limite = 3 ;
-    Pokemon [] misPokemon = new Pokemon[limite];
+    private Pokemon [] misPokemon = new Pokemon[limite];
 
     //Ver si existe el pokemon buscandolo por nombre
     @Override
